@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Admin Dashboard — JEEVIKA AI</title>
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/admin.css">
+<!-- Leaflet — real map engine + OpenStreetMap tiles -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+</head>
+<body>
+
+  <header class="navbar">
+    <a href="index.html" class="logo">JEEVIKA <span>AI</span></a>
+    <nav class="nav-links"></nav>
+    <a href="dashboard.html" class="btn btn-outline">← Beneficiary View</a>
+  </header>
+
+  <div class="admin-wrap">
+    <div class="admin-head">
+      <h1>🏛️ Government / Admin Dashboard</h1>
+      <p>Livelihood intelligence — beneficiaries, skill demand, aur training planning ke liye.</p>
+      <span class="disclaimer">⚠️ Poora data DEMO hai — real deployment mein verified beneficiary database se aayega</span>
+    </div>
+
+    <!-- ============ STAT CARDS ============ -->
+    <div class="stat-grid" id="stat-grid"></div>
+
+    <!-- ============ TOP INTEREST SECTORS ============ -->
+    <div class="card section-card">
+      <h2>📈 Top Interest Sectors</h2>
+      <p class="section-sub">Beneficiaries ne sabse zyada kis sector mein ruchi dikhayi.</p>
+      <div id="sector-bars" style="margin-top:20px;"></div>
+    </div>
+
+    <!-- ============ DISTRICT SKILL SUPPLY VS DEMAND (real map) ============ -->
+    <div class="card section-card">
+      <h2>🗺️ District Skill Supply vs Demand</h2>
+      <p class="section-sub">Live map par circles — bade aur gehre circle = zyada demand-supply gap. Zone list par click karke us jagah zoom karein.</p>
+      <div class="map-stage">
+        <div class="map-panel">
+          <div id="districtMap"></div>
+          <div class="map-toolbar" id="filterBar"></div>
+        </div>
+        <div class="side-panel">
+          <div class="mini-panel">
+            <h4>Demand Legend</h4>
+            <div class="legend-row"><span class="legend-dot" style="background:var(--clay);"></span> High gap</div>
+            <div class="legend-row"><span class="legend-dot" style="background:var(--marigold);"></span> Moderate gap</div>
+            <div class="legend-row"><span class="legend-dot" style="background:var(--forest);"></span> Well supplied</div>
+          </div>
+          <div class="mini-panel">
+            <h4>Top Gap Zones</h4>
+            <div id="zoneList"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    JEEVIKA AI — Smart India Hackathon 2026 Prototype · Admin View
+  </footer>
+
+  <script src="js/data.js"></script>
+  <script src="js/admin.js"></script>
+</body>
+</html>

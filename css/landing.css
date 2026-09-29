@@ -1,0 +1,256 @@
+/* =========================================================
+   LANDING PAGE STYLES (landing.css) — index.html only
+   Dark theme + colorful accents + animations.
+   Note: The global dark palette now lives in style.css (v2) and
+   applies to every page. This file only adds a --blue alias
+   (style.css calls it --azure) and landing-specific layout/anim.
+   ========================================================= */
+
+:root {
+  --blue: var(--azure); /* landing.css/landing.js reference --blue; style.css's token is --azure */
+}
+
+body { overflow-x: hidden; }
+
+/* ---------- Background particle canvas ---------- */
+#particle-canvas {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.navbar, main, .site-footer { position: relative; z-index: 1; }
+
+.navbar .logo { color: var(--ink); }
+.navbar .logo span { color: var(--forest); }
+.nav-links a:hover { color: var(--forest); }
+
+/* ---------- Hero (centered) ---------- */
+.hero {
+  min-height: 92vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 40px 24px 60px;
+  max-width: 780px;
+  margin: 0 auto;
+}
+
+.hero-tag {
+  display: inline-block;
+  color: var(--clay);
+  font-weight: 600;
+  font-size: 0.85rem;
+  letter-spacing: 0.02em;
+  margin-bottom: 22px;
+  opacity: 0;
+  animation: fade-up 0.7s ease forwards;
+}
+
+/* ---------- Big animated wordmark ---------- */
+.hero-title {
+  font-family: 'Fraunces', serif;
+  font-size: clamp(3rem, 11vw, 7rem);
+  font-weight: 600;
+  line-height: 1;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.25em;
+  color: var(--ink);
+}
+
+.hero-title .word { display: inline-flex; }
+
+.hero-title .letter {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(0.6em) rotate(4deg);
+  animation: letter-in 0.6s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+}
+
+/* JS staggers each letter's animation-delay inline — see landing.js */
+
+.word-accent .letter {
+  background: linear-gradient(120deg, var(--forest), var(--blue) 55%, var(--clay));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+@keyframes letter-in {
+  to { opacity: 1; transform: translateY(0) rotate(0deg); }
+}
+
+.hero-tagline {
+  margin-top: 22px;
+  font-family: 'Fraunces', serif;
+  font-size: clamp(1.1rem, 2.4vw, 1.5rem);
+  color: var(--blue);
+  opacity: 0;
+  animation: fade-up 0.7s ease forwards;
+  animation-delay: 1.05s;
+}
+
+.hero p.lead {
+  margin-top: 16px;
+  max-width: 46ch;
+  color: var(--ink-soft);
+  font-size: 1.05rem;
+  opacity: 0;
+  animation: fade-up 0.7s ease forwards;
+  animation-delay: 1.2s;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 14px;
+  margin-top: 30px;
+  flex-wrap: wrap;
+  justify-content: center;
+  opacity: 0;
+  animation: fade-up 0.7s ease forwards;
+  animation-delay: 1.35s;
+}
+
+/* Gold button needs dark text for contrast on dark theme */
+.hero-actions .btn-accent { color: #0B1210; }
+.hero-actions .btn-accent:hover { color: #0B1210; background: var(--marigold-dark); }
+
+.btn-outline { border-color: var(--mist); color: var(--ink); }
+.btn-outline:hover { border-color: var(--forest); color: var(--forest); }
+
+.hero-note {
+  margin-top: 18px;
+  font-size: 0.82rem;
+  color: var(--ink-soft);
+  opacity: 0;
+  animation: fade-up 0.7s ease forwards;
+  animation-delay: 1.5s;
+}
+
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(14px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ---------- Scroll cue ---------- */
+.scroll-cue {
+  margin-top: 46px;
+  width: 26px;
+  height: 42px;
+  border: 2px solid var(--mist);
+  border-radius: 14px;
+  display: flex;
+  justify-content: center;
+  padding-top: 8px;
+  opacity: 0;
+  animation: fade-up 0.7s ease forwards;
+  animation-delay: 1.7s;
+}
+.scroll-cue span {
+  width: 4px; height: 8px;
+  background: var(--forest);
+  border-radius: 4px;
+  animation: scroll-dot 1.6s ease-in-out infinite;
+}
+@keyframes scroll-dot {
+  0%, 100% { transform: translateY(0); opacity: 1; }
+  60% { transform: translateY(12px); opacity: 0.2; }
+}
+
+/* ---------- Section heading ---------- */
+.section-head { max-width: 640px; margin: 0 auto 36px; text-align: center; }
+.section-head h2 { font-size: clamp(1.6rem, 3vw, 2.1rem); }
+.section-head p { margin-top: 10px; color: var(--ink-soft); }
+
+section { padding: 70px 24px; max-width: var(--max-width); margin: 0 auto; }
+
+/* ---------- Scroll-reveal (JS toggles .in-view via IntersectionObserver) ---------- */
+.reveal-item {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.reveal-item.in-view { opacity: 1; transform: translateY(0); }
+
+/* ---------- How it works: colored steps ---------- */
+.steps {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.step {
+  border-top: 3px solid var(--mist);
+  padding-top: 16px;
+}
+.step-green { border-top-color: var(--forest); }
+.step-blue  { border-top-color: var(--blue); }
+.step-red   { border-top-color: var(--clay); }
+.step-gold  { border-top-color: var(--marigold); }
+
+.step .step-index { font-family: 'Fraunces', serif; font-size: 1.6rem; }
+.step-green .step-index { color: var(--forest); }
+.step-blue .step-index  { color: var(--blue); }
+.step-red .step-index   { color: var(--clay); }
+.step-gold .step-index  { color: var(--marigold); }
+
+.step h3 { font-size: 1.05rem; margin-top: 6px; }
+.step p { color: var(--ink-soft); font-size: 0.94rem; margin-top: 6px; }
+
+/* ---------- Differentiation banner ---------- */
+.diff-banner {
+  background: linear-gradient(155deg, #0E1A16 0%, #0A1614 60%, #0C1A20 100%);
+  border: 1px solid var(--mist);
+  border-radius: 20px;
+  padding: 48px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+.diff-banner::before {
+  content: "";
+  position: absolute; inset: -40% -20% auto auto; width: 320px; height: 320px;
+  background: radial-gradient(circle, rgba(56,189,248,0.18), transparent 70%);
+  pointer-events: none;
+}
+
+.diff-banner h2 { color: var(--ink); }
+.diff-banner p { color: var(--ink-soft); margin-top: 12px; }
+
+.diff-list { list-style: none; }
+.diff-list li {
+  padding: 10px 0;
+  border-bottom: 1px solid var(--mist);
+  color: var(--ink-soft);
+}
+.diff-list li:last-child { border-bottom: none; }
+.c-green { color: var(--forest); }
+.c-blue  { color: var(--blue); }
+.c-red   { color: var(--clay); }
+
+.site-footer { border-top-color: var(--mist); color: var(--ink-soft); }
+
+/* ---------- Reduced motion ---------- */
+@media (prefers-reduced-motion: reduce) {
+  .hero-title .letter, .hero-tag, .hero-tagline, .hero p.lead,
+  .hero-actions, .hero-note, .scroll-cue, .scroll-cue span, .reveal-item {
+    animation: none !important;
+    transition: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 860px) {
+  .steps { grid-template-columns: repeat(2, 1fr); }
+  .diff-banner { grid-template-columns: 1fr; padding: 32px; }
+}

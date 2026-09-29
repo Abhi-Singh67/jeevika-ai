@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>JEEVIKA AI — From Your Skills to Your Livelihood</title>
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/landing.css">
+</head>
+<body>
+
+  <!-- Background particle network — pure canvas, no external library -->
+  <canvas id="particle-canvas"></canvas>
+
+  <!-- ============ NAVBAR ============ -->
+  <header class="navbar">
+    <div class="logo">JEEVIKA <span>AI</span></div>
+    <nav class="nav-links">
+      <a href="#how-it-works">Kaise Kaam Karta Hai</a>
+      <a href="#differentiation">Ye Kya Hai</a>
+    </nav>
+    <a href="onboarding.html" class="btn btn-primary">Assessment Shuru Karein</a>
+  </header>
+
+  <!-- ============ HERO (centered, big animated wordmark) ============ -->
+  <main>
+    <section class="hero">
+      <span class="hero-tag">SIH 2026 · PS ID SIH26097 · Ministry of Social Justice &amp; Empowerment</span>
+
+      <h1 class="hero-title" id="hero-title" aria-label="JEEVIKA AI">
+        <!-- Har letter ek span mein — JS isse stagger animate karta hai -->
+        <span class="word" data-word="1"><span class="letter">J</span><span class="letter">E</span><span class="letter">E</span><span class="letter">V</span><span class="letter">I</span><span class="letter">K</span><span class="letter">A</span></span>
+        <span class="word word-accent" data-word="2"><span class="letter">A</span><span class="letter">I</span></span>
+      </h1>
+
+      <p class="hero-tagline">From Your Skills to Your Livelihood</p>
+
+      <p class="lead">
+        Aapki baat sunkar — padhai, kaam ka anubhav, ruchi aur mushkilon
+        (budget, samay, safar) ko samajh kar, sabse behtar aur asli
+        livelihood raaste dikhata hai.
+      </p>
+
+      <div class="hero-actions">
+        <a href="onboarding.html" class="btn btn-accent">🎤 Bolkar Shuru Karein</a>
+        <a href="onboarding.html" class="btn btn-outline">⌨️ Type Karke Shuru Karein</a>
+      </div>
+      <p class="hero-note">Koi form nahi bharni — bas apni kahani boliye ya likhiye.</p>
+
+      <div class="scroll-cue" id="scroll-cue">
+        <span></span>
+      </div>
+    </section>
+
+    <!-- ============ HOW IT WORKS ============ -->
+    <section id="how-it-works" class="reveal-section">
+      <div class="section-head">
+        <h2>Chaar seedhe kadam</h2>
+        <p>Koi lamba form nahi. Sirf ek baatcheet se aapka poora livelihood plan taiyaar hota hai.</p>
+      </div>
+      <div class="steps">
+        <div class="step step-green reveal-item">
+          <div class="step-index">01</div>
+          <h3>Boliye ya likhiye</h3>
+          <p>Apni padhai, kaam, aur ruchi apni bhasha mein bataiye.</p>
+        </div>
+        <div class="step step-blue reveal-item">
+          <div class="step-index">02</div>
+          <h3>Skill Profile bane</h3>
+          <p>AI aapke chhupe hue, informal skills ko bhi pehchanta hai.</p>
+        </div>
+        <div class="step step-red reveal-item">
+          <div class="step-index">03</div>
+          <h3>Sahi raaste dekhein</h3>
+          <p>Aapke budget, samay aur location ke hisaab se 3-4 raaste milte hain.</p>
+        </div>
+        <div class="step step-gold reveal-item">
+          <div class="step-index">04</div>
+          <h3>Roadmap paayein</h3>
+          <p>Ek 90-din ka saaf roadmap — training se rozgar tak.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ DIFFERENTIATION ============ -->
+    <section id="differentiation" class="reveal-section">
+      <div class="diff-banner reveal-item">
+        <div>
+          <h2>Ye sirf ek chatbot nahi hai</h2>
+          <p>
+            Course suggest karne wale apps bahut hain. JEEVIKA AI ek kadam aage
+            jaakar poochta hai — <b>"aapki asli zindagi mein, sach mein kya
+            possible hai?"</b>
+          </p>
+        </div>
+        <ul class="diff-list">
+          <li><b class="c-green">Constraint-aware</b> — budget, samay aur safar ko dhyan mein rakhta hai</li>
+          <li><b class="c-blue">Explainable</b> — har suggestion ka "kyun" bataata hai</li>
+          <li><b class="c-red">What-If Simulator</b> — halaat badlo, naye raaste dekho</li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    JEEVIKA AI — Smart India Hackathon 2026 Prototype · Demo data used for illustration purposes.
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script src="js/landing.js"></script>
+</body>
+</html>

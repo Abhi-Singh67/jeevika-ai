@@ -1,0 +1,71 @@
+/* =========================================================
+   PORTFOLIO + REPUTATION PAGE STYLES (portfolio.css)
+   ========================================================= */
+
+.portfolio-wrap { max-width: var(--max-width); margin: 0 auto; padding: 20px 24px 80px; }
+.portfolio-head { margin-bottom: 26px; }
+.portfolio-head h1 { font-size: 1.8rem; }
+.portfolio-head p { color: var(--ink-soft); margin-top: 6px; }
+
+/* ---------- Reputation summary strip ---------- */
+.rep-strip {
+  display: grid; grid-template-columns: 170px 1fr; gap: 30px; align-items: center;
+  padding: 28px; margin-bottom: 36px;
+}
+@media (max-width: 720px) { .rep-strip { grid-template-columns: 1fr; text-align: center; } }
+
+.gauge { position: relative; width: 140px; height: 140px; margin: 0 auto; }
+.gauge svg { transform: rotate(-90deg); width: 140px; height: 140px; }
+.gauge circle { fill: none; stroke-width: 10; }
+.gauge .bg { stroke: var(--mist); }
+.gauge .fg { stroke: url(#gaugeGradient); stroke-linecap: round; transition: stroke-dashoffset 1.6s cubic-bezier(.3,.9,.3,1); }
+.gauge .center { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; }
+.gauge .center b { font-family: 'Fraunces', serif; font-size: 1.5rem; color: var(--forest-dark); }
+.gauge .center span { font-size: 0.62rem; color: var(--ink-soft); }
+
+.rep-details h2 { font-size: 1.3rem; }
+.rep-details .role { color: var(--ink-soft); font-size: 0.9rem; margin-bottom: 14px; }
+.rep-metrics { display: flex; gap: 26px; flex-wrap: wrap; }
+.rep-metrics div b { display: block; font-family: 'Fraunces', serif; font-size: 1.25rem; color: var(--forest-dark); }
+.rep-metrics div span { font-size: 0.68rem; color: var(--ink-soft); text-transform: uppercase; }
+.stars { margin-top: 12px; font-size: 1.15rem; letter-spacing: 2px; }
+.stars span { color: var(--mist); transition: color 0.4s ease; }
+.stars span.lit { color: var(--marigold); }
+
+/* ---------- Portfolio gallery ---------- */
+.section-title { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 18px; flex-wrap: wrap; gap: 6px; }
+.section-title h2 { font-size: 1.25rem; }
+.section-title span { font-size: 0.78rem; color: var(--ink-soft); }
+
+.gallery { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin-bottom: 44px; }
+@media (max-width: 760px) { .gallery { grid-template-columns: repeat(2, 1fr); } }
+.tile {
+  aspect-ratio: 1/1; border-radius: 12px; position: relative; overflow: hidden; cursor: pointer;
+  display: flex; align-items: flex-end; padding: 12px; border: 1px solid var(--mist);
+  transition: transform 0.35s ease; opacity: 0; transform: translateY(14px);
+}
+.tile.show { opacity: 1; transform: translateY(0); }
+.tile:hover { transform: translateY(-6px) scale(1.02); }
+.tile .tag { font-size: 0.68rem; background: rgba(0,0,0,0.45); color: #fff; padding: 4px 9px; border-radius: 6px; }
+
+/* ---------- Lightbox ---------- */
+.lightbox { position: fixed; inset: 0; background: rgba(20,20,15,0.75); display: none; align-items: center; justify-content: center; z-index: 1000; padding: 5vw; }
+.lightbox.open { display: flex; animation: fadeIn 0.3s ease; }
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+.lightbox-inner { max-width: 500px; width: 100%; background: var(--card); border-radius: 16px; overflow: hidden; transform: scale(0.92); animation: popIn 0.35s cubic-bezier(.3,.9,.3,1) forwards; }
+@keyframes popIn { to { transform: scale(1); } }
+.lightbox-media { height: 260px; }
+.lightbox-body { padding: 22px; }
+.lightbox-body h3 { font-size: 1.1rem; margin-bottom: 6px; }
+.lightbox-body p { font-size: 0.86rem; color: var(--ink-soft); line-height: 1.6; }
+.lightbox-close { position: absolute; top: 20px; right: 5vw; color: var(--ink-soft); cursor: pointer; font-size: 0.85rem; background: var(--card); border: 1px solid var(--mist); padding: 8px 14px; border-radius: 8px; }
+.lightbox-close:hover { color: var(--forest); border-color: var(--forest); }
+
+/* ---------- Reviews ---------- */
+.reviews { display: flex; flex-direction: column; gap: 14px; }
+.review { padding: 20px; opacity: 0; transform: translateY(16px); transition: all 0.6s ease; }
+.review.show { opacity: 1; transform: translateY(0); }
+.review-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; flex-wrap: wrap; }
+.review-top .rname { font-weight: 600; }
+.review-top .rjob { font-size: 0.74rem; color: var(--ink-soft); }
+.review p { font-size: 0.9rem; color: var(--ink-soft); line-height: 1.6; }

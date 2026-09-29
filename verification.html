@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Skill Verification — JEEVIKA AI</title>
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/verification.css">
+</head>
+<body>
+
+  <header class="navbar">
+    <a href="index.html" class="logo">JEEVIKA <span>AI</span></a>
+    <nav class="nav-links"></nav>
+    <a href="dashboard.html" class="btn btn-outline">← Dashboard</a>
+  </header>
+
+  <div class="verify-wrap">
+    <div class="verify-head">
+      <h1>🛡️ Skill Verification</h1>
+      <p>Certificate ya past-work proof upload karein — AI-inferred skill ko "Verified" badge mil sakta hai.</p>
+      <span class="disclaimer">⚠️ Demo simulation — koi real document-scanning nahi ho rahi, sirf UI flow dikhaya gaya hai</span>
+    </div>
+
+    <div class="stage">
+      <!-- LEFT: upload + verification pipeline -->
+      <div class="card">
+        <h2 class="panel-h2">Upload Certificate</h2>
+        <div class="panel-sub">Kisi bhi file ko drop/select karke simulate karein</div>
+
+        <div class="dropzone" id="dropzone">
+          <input type="file" id="fileInput">
+          <span class="dz-icon">📄</span>
+          <h3>Drag &amp; drop certificate yahaan</h3>
+          <p>PDF, JPG ya PNG — ya click karke choose karein</p>
+        </div>
+
+        <div class="pipeline" id="pipeline">
+          <div class="pstep" data-step="upload"><div class="pdot">1</div><div class="plabel">Uploaded</div></div>
+          <div class="pstep" data-step="scan"><div class="pdot">2</div><div class="plabel">Scanning</div></div>
+          <div class="pstep" data-step="match"><div class="pdot">3</div><div class="plabel">Cross-check</div></div>
+          <div class="pstep" data-step="verify"><div class="pdot">4</div><div class="plabel">Verified</div></div>
+        </div>
+
+        <div class="log" id="logBox"></div>
+      </div>
+
+      <!-- RIGHT: skill ledger, badges update live -->
+      <div class="card">
+        <h2 class="panel-h2">Aapki Skill Ledger</h2>
+        <div class="panel-sub">Kisi skill ke saamne "Verify Karein" dabayein, phir left panel mein file upload karein</div>
+        <div id="skillList"></div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    JEEVIKA AI — Smart India Hackathon 2026 Prototype
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script src="js/verification.js"></script>
+</body>
+</html>

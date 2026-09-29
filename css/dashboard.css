@@ -1,0 +1,261 @@
+/* =========================================================
+   DASHBOARD PAGE STYLES (dashboard.css)
+   ========================================================= */
+
+.dash-wrap {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 20px 24px 80px;
+}
+
+.dash-head { margin-bottom: 28px; }
+.dash-head h1 { font-size: 1.8rem; }
+.dash-head p { color: var(--ink-soft); margin-top: 6px; }
+
+.disclaimer {
+  background: rgba(245, 185, 66, 0.12);
+  color: var(--gold);
+  border: 1px solid rgba(245, 185, 66, 0.3);
+  border-radius: 10px;
+  padding: 10px 16px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  display: inline-block;
+  margin-top: 10px;
+}
+
+/* ---------- Profile summary card ---------- */
+.summary-card { margin-bottom: 32px; }
+
+.summary-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 18px;
+  margin-top: 18px;
+}
+
+.summary-item h4 {
+  font-size: 0.78rem;
+  color: var(--ink-soft);
+  margin-bottom: 6px;
+  font-weight: 600;
+}
+
+.summary-item .value { font-weight: 600; }
+
+.tag {
+  display: inline-block;
+  background: rgba(52, 211, 153, 0.14);
+  color: var(--emerald);
+  border-radius: 999px;
+  padding: 4px 12px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  margin: 3px 4px 0 0;
+}
+.tag.inferred { background: rgba(245, 185, 66, 0.14); color: var(--gold); }
+
+/* ---------- Section cards (shared) ---------- */
+.section-card { margin-bottom: 28px; }
+.section-sub { color: var(--ink-soft); margin-top: 6px; font-size: 0.94rem; }
+
+/* ---------- Recommended pathway cards ---------- */
+.pathway-list { margin-top: 18px; display: flex; flex-direction: column; gap: 14px; }
+
+.pathway-card {
+  border: 1.5px solid var(--mist);
+  border-radius: var(--radius);
+  padding: 18px 20px;
+  cursor: pointer;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+.pathway-card:hover { border-color: var(--azure); }
+.pathway-card.selected { border-color: var(--emerald); box-shadow: 0 0 0 3px rgba(52,211,153,0.15); }
+
+.pathway-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.pathway-top h3 { font-size: 1.1rem; }
+
+.select-badge {
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--emerald);
+  background: rgba(52, 211, 153, 0.14);
+  padding: 3px 10px;
+  border-radius: 999px;
+  margin-left: 8px;
+}
+
+.pathway-score {
+  font-family: 'Fraunces', serif;
+  font-size: 1.3rem;
+  color: var(--forest);
+  white-space: nowrap;
+}
+
+.pathway-meta {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+  margin-top: 8px;
+  font-size: 0.85rem;
+  color: var(--ink-soft);
+}
+
+.pathway-skills { margin-top: 12px; }
+.pathway-skills .label { font-size: 0.78rem; font-weight: 600; color: var(--ink-soft); margin-right: 6px; }
+
+.skill-chip {
+  display: inline-block;
+  border-radius: 999px;
+  padding: 3px 10px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  margin: 2px 4px 2px 0;
+}
+.skill-chip.have { background: rgba(52, 211, 153, 0.14); color: var(--emerald); }
+.skill-chip.missing { background: rgba(251, 107, 82, 0.14); color: var(--coral); }
+
+/* ---------- Why / Why Not ---------- */
+.why-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin-top: 18px;
+}
+.why-head { font-size: 0.95rem; }
+.why-head.yes { color: var(--emerald); }
+.why-head.no { color: var(--coral); }
+
+.reason-list { list-style: none; margin-top: 10px; }
+.reason-list li {
+  padding: 8px 0;
+  border-bottom: 1px solid var(--mist);
+  font-size: 0.92rem;
+  color: var(--ink);
+}
+.reason-list li:last-child { border-bottom: none; }
+
+/* ---------- Comparison table ---------- */
+.table-scroll { overflow-x: auto; margin-top: 16px; }
+
+.compare-table {
+  border-collapse: collapse;
+  width: 100%;
+  min-width: 640px;
+  font-size: 0.9rem;
+}
+.compare-table th, .compare-table td {
+  padding: 10px 14px;
+  border-bottom: 1px solid var(--mist);
+  text-align: left;
+  white-space: nowrap;
+}
+.compare-table th { color: var(--ink-soft); font-size: 0.78rem; font-weight: 600; }
+.compare-table td.metric-label { color: var(--ink-soft); font-weight: 600; }
+
+/* ---------- What-If Simulator ---------- */
+.whatif-controls {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr) auto;
+  gap: 18px;
+  align-items: end;
+  margin-top: 18px;
+}
+.whatif-field label { display: block; font-size: 0.8rem; color: var(--ink-soft); font-weight: 600; margin-bottom: 6px; }
+.whatif-field select, .whatif-field input[type="range"] { width: 100%; }
+.whatif-field select {
+  padding: 10px; border-radius: 8px; border: 1px solid var(--mist); font-family: 'Work Sans', sans-serif;
+}
+
+/* ---------- Roadmap ---------- */
+.roadmap-timeline { margin-top: 18px; display: flex; flex-direction: column; gap: 0; }
+.roadmap-item { display: flex; gap: 18px; padding: 16px 0; border-left: 2px solid var(--mist); padding-left: 20px; position: relative; }
+.roadmap-item::before {
+  content: ""; position: absolute; left: -6px; top: 20px; width: 10px; height: 10px;
+  border-radius: 50%; background: var(--marigold);
+}
+.roadmap-item .period { min-width: 120px; font-weight: 700; color: var(--forest-dark); font-size: 0.88rem; }
+.roadmap-item .rd-title { font-weight: 600; }
+.roadmap-item .rd-detail { color: var(--ink-soft); font-size: 0.9rem; margin-top: 2px; }
+
+/* ---------- Skill Passport: flip ID card ---------- */
+.passport-zone { display: flex; flex-direction: column; align-items: center; margin-top: 18px; }
+
+.flip-scene { width: 340px; height: 440px; perspective: 1600px; cursor: pointer; }
+.flip-card {
+  position: relative; width: 100%; height: 100%;
+  transition: transform 0.8s cubic-bezier(.4,.2,.2,1);
+  transform-style: preserve-3d;
+}
+.flip-scene.flipped .flip-card { transform: rotateY(180deg); }
+
+.pp-face {
+  position: absolute; inset: 0; border-radius: 18px; backface-visibility: hidden;
+  border: 1px solid var(--mist); padding: 26px;
+  box-shadow: var(--shadow);
+  display: flex; flex-direction: column;
+}
+.pp-front { background: linear-gradient(160deg, var(--card), #F3F0E6); }
+.pp-back { background: var(--forest); color: #fff; transform: rotateY(180deg); align-items: center; text-align: center; }
+
+.pp-eyebrow { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.06em; color: var(--marigold-dark); }
+.pp-avatar {
+  width: 64px; height: 64px; border-radius: 14px; margin: 16px 0 12px;
+  background: linear-gradient(135deg, var(--marigold), var(--clay));
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Fraunces', serif; font-weight: 600; font-size: 1.5rem; color: #fff;
+}
+.pp-name { font-family: 'Fraunces', serif; font-size: 1.2rem; }
+.pp-role { color: var(--ink-soft); font-size: 0.88rem; margin-bottom: 14px; }
+.pp-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: auto; }
+.pp-footer { display: flex; justify-content: space-between; border-top: 1px dashed var(--mist); padding-top: 14px; margin-top: 14px; font-size: 0.72rem; color: var(--ink-soft); }
+
+.pp-back .qr-holder { background: #fff; padding: 10px; border-radius: 10px; margin: 18px 0; }
+.pp-back h3 { color: #fff; font-size: 1rem; }
+.pp-back-stats { display: flex; gap: 20px; margin-top: auto; }
+.pp-back-stats div b { display: block; font-family: 'Fraunces', serif; font-size: 1.1rem; }
+.pp-back-stats div span { font-size: 0.66rem; color: #DCEAE3; }
+
+.flip-hint { margin-top: 14px; font-size: 0.8rem; color: var(--ink-soft); }
+
+/* ---------- Radial score ring (on pathway cards) ---------- */
+.score-ring { position: relative; width: 58px; height: 58px; flex-shrink: 0; }
+.score-ring svg { transform: rotate(-90deg); width: 58px; height: 58px; }
+.score-ring circle { fill: none; stroke-width: 6; }
+.score-ring .bg { stroke: var(--mist); }
+.score-ring .fg { stroke: var(--forest); stroke-linecap: round; transition: stroke-dashoffset 1s cubic-bezier(.3,.9,.3,1); }
+.score-ring .pct { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; font-family: 'Fraunces', serif; font-size: 0.85rem; }
+
+/* ---------- Expandable factor breakdown ---------- */
+.breakdown-toggle {
+  font-size: 0.78rem; font-weight: 600; color: var(--forest); background: transparent;
+  border: 1px solid var(--mist); border-radius: 8px; padding: 6px 12px; cursor: pointer; margin-top: 10px;
+}
+.breakdown-toggle:hover { border-color: var(--forest); }
+
+.breakdown { max-height: 0; overflow: hidden; transition: max-height 0.4s ease, opacity 0.3s ease, margin-top 0.3s ease; opacity: 0; }
+.pathway-card.expanded .breakdown { max-height: 260px; opacity: 1; margin-top: 14px; }
+
+.factor-row { display: grid; grid-template-columns: 110px 1fr 40px; align-items: center; gap: 10px; margin-bottom: 8px; }
+.factor-row .fl { font-size: 0.8rem; color: var(--ink-soft); }
+.factor-row .ftrack { height: 6px; background: var(--mist); border-radius: 4px; overflow: hidden; }
+.factor-row .ffill { height: 100%; border-radius: 4px; width: 0%; transition: width 0.9s cubic-bezier(.3,.9,.3,1); }
+.factor-row .fv { font-size: 0.75rem; color: var(--ink-soft); text-align: right; }
+
+.admin-link-row { display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; margin-top: 20px; }
+
+@media (max-width: 900px) {
+  .whatif-controls { grid-template-columns: 1fr 1fr; }
+  .why-grid { grid-template-columns: 1fr; }
+}
+@media (max-width: 720px) {
+  .summary-grid, .feature-grid { grid-template-columns: 1fr; }
+  .whatif-controls { grid-template-columns: 1fr; }
+}

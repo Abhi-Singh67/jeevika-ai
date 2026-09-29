@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Assessment — JEEVIKA AI</title>
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/onboarding.css">
+</head>
+<body>
+
+  <header class="navbar">
+    <a href="index.html" class="logo">JEEVIKA <span>AI</span></a>
+    <nav class="nav-links"></nav>
+    <a href="index.html" class="btn btn-outline">← Home</a>
+  </header>
+
+  <div class="onboard-wrap">
+    <div class="onboard-head">
+      <h1>Apni kahani batayein</h1>
+      <p>Apni padhai, kaam, aur ruchi ke baare mein khulkar boliye ya likhiye.</p>
+    </div>
+
+    <!-- Mode switch -->
+    <div class="mode-tabs">
+      <button class="mode-tab active" id="tab-voice" onclick="switchMode('voice')">🎤 Voice</button>
+      <button class="mode-tab" id="tab-text" onclick="switchMode('text')">⌨️ Text</button>
+    </div>
+
+    <!-- VOICE PANEL -->
+    <div class="voice-panel" id="panel-voice">
+      <button class="mic-button" id="micBtn" onclick="toggleListening()">🎤</button>
+      <p class="mic-status" id="micStatus">Bolne ke liye mic dabayein</p>
+      <div class="transcript-box" id="transcriptBox">Aapke bole hue shabd yahan dikhenge...</div>
+    </div>
+
+    <!-- TEXT PANEL (hidden by default) -->
+    <div class="text-panel" id="panel-text" style="display:none;">
+      <textarea id="textInput" placeholder="Jaise: Main 12th tak padha hoon. Main papa ke saath kheti karta hoon aur tractor bhi chalata hoon. Mujhe electrical ka kaam seekhna hai, lekin main apne district se bahar nahi jaana chahta."></textarea>
+      <p class="example-hint">Tip: apni padhai, kaam ka anubhav, ruchi, aur kisi bhi rukawat (jaise safar, budget) ke baare mein batayein.</p>
+    </div>
+
+    <div class="action-row">
+      <button class="btn btn-primary" id="extractBtn" onclick="runExtraction()">Meri Profile Banayein →</button>
+    </div>
+
+    <!-- EXTRACTED PROFILE PREVIEW -->
+    <div id="profile-preview">
+      <h2>Aapki Livelihood Profile</h2>
+      <div class="preview-grid">
+        <div class="preview-field">
+          <h4>Education</h4>
+          <div class="value" id="out-education">—</div>
+        </div>
+        <div class="preview-field">
+          <h4>Existing Livelihood</h4>
+          <div class="value" id="out-occupation">—</div>
+        </div>
+        <div class="preview-field" style="grid-column: 1 / -1;">
+          <h4>Self-Reported / AI-Inferred Skills</h4>
+          <div id="out-skills">—</div>
+        </div>
+        <div class="preview-field" style="grid-column: 1 / -1;">
+          <h4>Interests</h4>
+          <div id="out-interests">—</div>
+        </div>
+        <div class="preview-field" style="grid-column: 1 / -1;">
+          <h4>Constraints</h4>
+          <div id="out-constraints">—</div>
+        </div>
+      </div>
+      <div class="action-row">
+        <a href="dashboard.html" class="btn btn-accent">Dashboard Par Jaayein →</a>
+      </div>
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    JEEVIKA AI — Smart India Hackathon 2026 Prototype
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script src="js/data.js"></script>
+  <script src="js/skillEngine.js"></script>
+  <script src="js/onboarding.js"></script>
+</body>
+</html>

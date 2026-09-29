@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portfolio &amp; Reputation — JEEVIKA AI</title>
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/portfolio.css">
+</head>
+<body>
+
+  <header class="navbar">
+    <a href="index.html" class="logo">JEEVIKA <span>AI</span></a>
+    <nav class="nav-links"></nav>
+    <a href="dashboard.html" class="btn btn-outline">← Dashboard</a>
+  </header>
+
+  <div class="portfolio-wrap">
+    <div class="portfolio-head">
+      <h1>📸 Portfolio &amp; Reputation</h1>
+      <p>Training ke baad, jab kaam shuru ho jaaye — yahan track record banta hai. Ye ek future-stage screen hai (post-employment).</p>
+      <span class="disclaimer">⚠️ Demo profile — ek trained beneficiary ka example dikhaya gaya hai</span>
+    </div>
+
+    <!-- Reputation summary -->
+    <div class="card rep-strip">
+      <div class="gauge">
+        <svg viewBox="0 0 140 140">
+          <defs>
+            <linearGradient id="gaugeGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#E7A33D"/>
+              <stop offset="100%" stop-color="#1F4B43"/>
+            </linearGradient>
+          </defs>
+          <circle class="bg" cx="70" cy="70" r="60"></circle>
+          <circle class="fg" id="gaugeFg" cx="70" cy="70" r="60"></circle>
+        </svg>
+        <div class="center"><b id="gaugeNum">0</b><span>REPUTATION</span></div>
+      </div>
+      <div class="rep-details">
+        <h2 id="repName">—</h2>
+        <div class="role" id="repRole">—</div>
+        <div class="stars" id="starRow"></div>
+        <div class="rep-metrics">
+          <div><b id="mJobs">0</b><span>Jobs Completed</span></div>
+          <div><b id="mRating">0.0</b><span>Avg Rating</span></div>
+          <div><b id="mRepeat">0%</b><span>Repeat Clients</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Portfolio gallery -->
+    <div class="section-title"><h2>Work Portfolio</h2><span id="jobCount">— COMPLETED JOBS · CLICK TO VIEW</span></div>
+    <div class="gallery" id="gallery"></div>
+
+    <!-- Reviews -->
+    <div class="section-title"><h2>Verified Reviews</h2><span>SCROLL TO REVEAL</span></div>
+    <div class="reviews" id="reviews"></div>
+  </div>
+
+  <footer class="site-footer">
+    JEEVIKA AI — Smart India Hackathon 2026 Prototype
+  </footer>
+
+  <!-- Lightbox for portfolio tiles -->
+  <div class="lightbox" id="lightbox">
+    <div class="lightbox-close" id="lightboxClose">✕ Close</div>
+    <div class="lightbox-inner">
+      <div class="lightbox-media" id="lightboxMedia"></div>
+      <div class="lightbox-body">
+        <h3 id="lightboxTitle"></h3>
+        <p id="lightboxDesc"></p>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/main.js"></script>
+  <script src="js/data.js"></script>
+  <script src="js/portfolio.js"></script>
+</body>
+</html>

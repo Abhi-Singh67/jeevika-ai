@@ -1,0 +1,45 @@
+/* =========================================================
+   CONNECT PAGE STYLES (connect.css)
+   ========================================================= */
+
+.connect-wrap { max-width: var(--max-width); margin: 0 auto; padding: 20px 24px 80px; }
+.connect-head { margin-bottom: 26px; }
+.connect-head h1 { font-size: 1.8rem; }
+.connect-head p { color: var(--ink-soft); margin-top: 6px; }
+
+/* ---------- Search bar ---------- */
+.search-box {
+  display: flex; align-items: center; gap: 12px; background: var(--card); border: 1px solid var(--mist);
+  border-radius: 14px; padding: 14px 18px; transition: border-color 0.25s ease, box-shadow 0.25s ease;
+}
+.search-box:focus-within { border-color: var(--forest); box-shadow: 0 0 0 3px rgba(52,211,153,0.15); }
+.search-box .sicon { font-size: 1.1rem; flex-shrink: 0; }
+.search-box input { flex: 1; background: transparent; border: none; outline: none; color: var(--ink); font-family: 'Work Sans', sans-serif; font-size: 1rem; }
+.search-box input::placeholder { color: var(--ink-soft); }
+
+.filter-row { display: flex; gap: 8px; flex-wrap: wrap; margin: 16px 0 26px; }
+.filter-chip {
+  font-size: 0.8rem; padding: 8px 14px; border-radius: 20px; border: 1px solid var(--mist);
+  color: var(--ink-soft); cursor: pointer; transition: all 0.2s; background: var(--card);
+}
+.filter-chip.active { background: var(--forest); border-color: var(--forest); color: #fff; font-weight: 600; }
+
+/* ---------- Opportunity cards ---------- */
+.opp-list { display: flex; flex-direction: column; gap: 14px; }
+.opp-card {
+  background: var(--card); border: 1.5px solid var(--mist); border-radius: var(--radius); padding: 20px 22px;
+  display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap;
+  transition: border-color 0.15s ease;
+}
+.opp-card.match { border-color: var(--forest); box-shadow: 0 0 0 3px rgba(52,211,153,0.12); }
+.opp-info h3 { font-size: 1.05rem; }
+.opp-info .employer { color: var(--ink-soft); font-size: 0.88rem; margin-top: 3px; }
+.opp-meta { display: flex; gap: 14px; flex-wrap: wrap; margin-top: 8px; font-size: 0.82rem; color: var(--ink-soft); }
+.match-tag {
+  font-size: 0.7rem; font-weight: 700; color: var(--forest); background: rgba(52,211,153,0.14);
+  padding: 3px 10px; border-radius: 999px; margin-left: 8px;
+}
+.opp-actions { display: flex; flex-direction: column; align-items: flex-end; gap: 8px; }
+.opp-wage { font-family: 'Fraunces', serif; font-size: 1.1rem; color: var(--forest-dark); }
+
+.empty-state { text-align: center; padding: 40px 20px; color: var(--ink-soft); }

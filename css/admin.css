@@ -1,0 +1,88 @@
+/* =========================================================
+   ADMIN DASHBOARD STYLES (admin.css)
+   ========================================================= */
+
+.admin-wrap {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 20px 24px 80px;
+}
+
+.admin-head h1 { font-size: 1.8rem; }
+.admin-head p { color: var(--ink-soft); margin-top: 6px; }
+
+.section-card { margin-bottom: 28px; }
+.section-sub { color: var(--ink-soft); margin-top: 6px; font-size: 0.94rem; }
+
+/* ---------- Stat cards ---------- */
+.stat-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+  margin: 28px 0;
+}
+
+.stat-card {
+  background: var(--card);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 22px;
+}
+
+.stat-card .num {
+  font-family: 'Fraunces', serif;
+  font-size: 2.1rem;
+  color: var(--forest);
+}
+
+.stat-card .label { color: var(--ink-soft); font-size: 0.86rem; margin-top: 4px; }
+
+/* ---------- Simple bar chart (sectors) ---------- */
+.bar-row { margin-bottom: 14px; }
+.bar-row .bar-label {
+  display: flex; justify-content: space-between; font-size: 0.88rem; margin-bottom: 5px;
+}
+.bar-track { background: var(--mist); border-radius: 999px; height: 10px; overflow: hidden; }
+.bar-fill { background: var(--forest); height: 100%; border-radius: 999px; }
+
+/* ---------- District map (Leaflet) ---------- */
+.map-stage { display: grid; grid-template-columns: 1fr 300px; gap: 20px; align-items: start; margin-top: 18px; }
+@media (max-width: 900px) { .map-stage { grid-template-columns: 1fr; } }
+
+.map-panel { border: 1px solid var(--mist); border-radius: var(--radius); overflow: hidden; }
+#districtMap { height: 460px; width: 100%; }
+.map-toolbar { display: flex; gap: 8px; padding: 14px; flex-wrap: wrap; border-top: 1px solid var(--mist); background: var(--card); }
+
+.filter-chip {
+  font-size: 0.76rem; padding: 7px 13px; border-radius: 20px; border: 1px solid var(--mist);
+  color: var(--ink-soft); cursor: pointer; transition: all 0.2s; background: var(--paper);
+}
+.filter-chip.active { background: var(--forest); border-color: var(--forest); color: #fff; font-weight: 600; }
+
+.side-panel { display: flex; flex-direction: column; gap: 16px; }
+.mini-panel { background: var(--card); border: 1px solid var(--mist); border-radius: var(--radius); padding: 18px; box-shadow: var(--shadow); }
+.mini-panel h4 { font-size: 0.9rem; margin-bottom: 12px; color: var(--forest-dark); }
+
+.legend-row { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; font-size: 0.84rem; color: var(--ink-soft); }
+.legend-dot { width: 12px; height: 12px; border-radius: 50%; flex-shrink: 0; }
+
+.zone-row {
+  display: flex; justify-content: space-between; align-items: center; padding: 9px 0;
+  border-bottom: 1px solid var(--mist); font-size: 0.84rem; cursor: pointer; transition: padding-left 0.2s;
+}
+.zone-row:hover { padding-left: 5px; color: var(--forest); }
+.zone-row:last-child { border-bottom: none; }
+.zone-badge { font-size: 0.68rem; font-weight: 600; padding: 3px 9px; border-radius: 10px; }
+.zone-badge.high { background: rgba(251,107,82,0.14); color: var(--clay); }
+.zone-badge.medium { background: rgba(245,185,66,0.14); color: var(--marigold-dark); }
+.zone-badge.low { background: rgba(52,211,153,0.14); color: var(--forest); }
+
+/* Leaflet popup restyle to match JEEVIKA brand */
+.leaflet-popup-content-wrapper { background: var(--card); color: var(--ink); border-radius: 10px; border: 1px solid var(--mist); }
+.leaflet-popup-tip { background: var(--card); }
+.popup-title { font-weight: 600; font-size: 0.92rem; margin-bottom: 3px; }
+.popup-meta { font-size: 0.76rem; color: var(--ink-soft); }
+
+@media (max-width: 860px) {
+  .stat-grid { grid-template-columns: repeat(2, 1fr); }
+}
